@@ -45,4 +45,4 @@ Benjamin
 * **LiDAR:** if anything is within 0.35 m ahead the robot slows and steers to the freer side; the planner's map does not contain the `surprise` obstacle.
 
 ## Generative AI declaration
-Google Gemini was used to generalise and explain the thought process behind the production on the assesment in general. It did not write a line of code.
+Google Gemini was used to generalise and explain the thought process behind the production on the assesment in general. It did not write a line of code. However ChatGPT was used to optimise, debug, compile and provide suggestions for the jupyter notebook. Most notably, it was used to compile all the work into a single easy to run setup.
