@@ -1,4 +1,4 @@
-# SensorsAndControlAssessment4
+# Sensors And Control Assessment4
 
 **Members:** Benjamin Li 26111296 | Aidan Lee 25918525   
 **Video:** https://youtu.be/La9iTg0fb1c
