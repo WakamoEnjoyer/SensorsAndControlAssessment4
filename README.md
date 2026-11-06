@@ -7,10 +7,12 @@
 
 The notebook is built for **Google Colab** (Linux). It will not run on Windows locally.
 
-1. Open `TrackSimulation.ipynb` in [Google Colab](https://colab.research.google.com).
-2. Run the cells from the top (Runtime, Run all).
-3. When cell 2 asks for a file, upload `tb3_trackA_v2.zip` from this repo. Keep that exact filename.
-4. Results (plots, `.npz` data, replay `.mp4`) are saved and zipped at the end.
+How to test it in a fresh Colab
+1. Download both files above (TrackA_WafflePi_RunAll, TrackA_Tutor_Ready).
+2. Open the .ipynb notebook in Google Colab.
+3. Select Runtime → Run all.
+4. When prompted, upload TrackA_Tutor_Ready.zip.
+5. Wait for the navigation results, trajectory graph and 3D video.
 
 ## How it works
 
