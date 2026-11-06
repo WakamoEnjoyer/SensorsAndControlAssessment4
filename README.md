@@ -3,6 +3,35 @@
 **Members:** Benjamin Li 26111296 | Aidan Lee 25918525   
 **Video:** https://youtu.be/La9iTg0fb1c
 
+## How to run
+
+The notebook is built for **Google Colab** (Linux). It will not run on Windows locally.
+
+1. Open `TrackSimulation.ipynb` in [Google Colab](https://colab.research.google.com).
+2. Run the cells from the top (Runtime, Run all).
+3. When cell 2 asks for a file, upload `tb3_trackA_v2.zip` from this repo. Keep that exact filename.
+4. Results (plots, `.npz` data, replay `.mp4`) are saved and zipped at the end.
+
+## How it works
+
+| Part | What we did |
+|---|---|
+| **Model** | State `[x, y, theta]`, input `(v, w)` (unicycle). Path-error model `e_y' = v e_theta`, `e_theta' = w - v kappa`. |
+| **Sensing** | Camera measures range and bearing to ArUco markers. Noise was calibrated from known distances. The camera sits 5 cm from the robot centre, handled as a frame change in the measurement model. |
+| **Estimation** | EKF: predict from encoder odometry, update from each marker detection. Innovation gating rejects outliers. Consistency checked with NEES/NIS. |
+| **Control** | State-feedback (LQR/LQI) on the path error, with curvature feedforward, using the EKF estimate. Gains chosen with Bryson's rule. |
+| **Obstacles** | A* path planning with spline smoothing around the known obstacles. |
+
+## Repository layout
+
+```
+TrackSimulation.ipynb   notebook that runs everything
+tb3_trackA_v2.zip       code package (tb3nav/) the notebook uploads
+results/                plots, data, replay video
+```
+
+`tb3nav/` modules: `ekf`, `models`, `control`, `planner`, `sim`, `vision`, `mujoco_adapter`, `metrics`, `plots`.
+
 ## Contributions
 Aidan
 * **Model (A):** state `[x, y, theta]`, input `(v, w)`. Error model `e_y' = v e_theta`, `e_theta' = w - v kappa`. Controllability and observability ranks are in `results.txt`.
